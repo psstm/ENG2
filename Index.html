@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English 2 — Unit 9 & 10 🐳</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:    #FFB3C6;
+  --pink2:   #FF85A1;
+  --pink3:   #FFC8D8;
+  --lavender:#D4BBFF;
+  --lav2:    #C3A8FF;
+  --mint:    #B5EAD7;
+  --mint2:   #7DDBB8;
+  --peach:   #FFDAB9;
+  --peach2:  #FFC0A0;
+  --yellow:  #FFF0A0;
+  --yellow2: #FFE066;
+  --sky:     #BFE6FF;
+  --sky2:    #80CCFF;
+  --white:   #FFFAFB;
+  --cream:   #FFF4F7;
+  --text:    #4A3050;
+  --text2:   #7A5A80;
+  --text3:   #A080A0;
+  --card-shadow: 0 4px 20px rgba(180,100,140,0.13);
+  --card-shadow2: 0 8px 32px rgba(180,100,140,0.18);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Nunito', 'Mitr', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* BG decoration */
+body::before {
+  content:'';
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 15%, rgba(255,179,198,0.28) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 90% 80%, rgba(212,187,255,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(181,234,215,0.13) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+.container { position: relative; z-index:1; max-width: 900px; margin: 0 auto; padding: 0 16px 60px; }
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 40px 20px 28px;
+  position: relative;
+}
+.header .whale { font-size: 48px; display: block; margin-bottom: 8px; animation: bob 2.5s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.header h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem; font-weight: 900;
+  background: linear-gradient(135deg, #FF85A1, #C3A8FF, #7DDBB8);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 6px;
+}
+.header .subtitle {
+  font-size: 0.95rem; color: var(--text2); font-weight: 600;
+}
+.exam-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #FFB3C6, #D4BBFF);
+  color: var(--text); font-weight: 700; font-size: 0.85rem;
+  padding: 8px 18px; border-radius: 999px; margin-top: 14px;
+  box-shadow: 0 4px 14px rgba(255,133,161,0.3);
+}
+
+/* ===== TABS ===== */
+.tabs {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin: 20px 0 28px;
+}
+.tab-btn {
+  padding: 10px 22px; border-radius: 999px; border: none; cursor: pointer;
+  font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 700;
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  position: relative; overflow: hidden;
+}
+.tab-btn::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: 999px;
+  background: rgba(255,255,255,0.3); opacity: 0; transition: opacity .2s;
+}
+.tab-btn:hover::after { opacity: 1; }
+.tab-btn:active { transform: scale(0.96); }
+
+.tab-vocab   { background: var(--pink);    color: #7A2040; box-shadow: 0 4px 12px rgba(255,133,161,0.25); }
+.tab-grammar { background: var(--lavender); color: #4A2080; box-shadow: 0 4px 12px rgba(195,168,255,0.25); }
+.tab-useful  { background: var(--mint);    color: #1A6050; box-shadow: 0 4px 12px rgba(125,219,184,0.25); }
+.tab-reading { background: var(--peach);   color: #7A4020; box-shadow: 0 4px 12px rgba(255,192,160,0.25); }
+
+.tab-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(180,100,140,0.35);
+}
+
+/* ===== SECTIONS ===== */
+.section { display: none; animation: fadeIn 0.35s ease; }
+.section.active { display: block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+/* ===== CARDS COMMON ===== */
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 22px 24px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 16px;
+  border: 1.5px solid rgba(255,179,198,0.3);
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow: var(--card-shadow2); transform: translateY(-2px); }
+
+.section-title {
+  font-size: 1.1rem; font-weight: 800; color: var(--text);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.section-title .dot {
+  width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
+}
+
+/* ===== VOCAB SECTION ===== */
+.vocab-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 12px;
+  margin-bottom: 20px;
+}
+.vocab-pill {
+  background: linear-gradient(135deg, rgba(255,179,198,0.18), rgba(255,255,255,0.9));
+  border: 1.5px solid rgba(255,179,198,0.4);
+  border-radius: 14px; padding: 12px 14px;
+  transition: all .2s; cursor: default;
+}
+.vocab-pill:hover { transform: scale(1.03); box-shadow: 0 4px 14px rgba(255,133,161,0.2); }
+.vocab-pill .en { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+.vocab-pill .th { font-size: 0.82rem; color: var(--text2); margin-top: 3px; }
+.vocab-pill .ex { font-size: 0.78rem; color: var(--text3); margin-top: 6px; font-style: italic; border-top: 1px dashed rgba(180,100,140,0.2); padding-top: 5px; }
+
+.vocab-pill.lav {
+  background: linear-gradient(135deg, rgba(212,187,255,0.2), rgba(255,255,255,0.9));
+  border-color: rgba(195,168,255,0.4);
+}
+.vocab-pill.mint {
+  background: linear-gradient(135deg, rgba(181,234,215,0.2), rgba(255,255,255,0.9));
+  border-color: rgba(125,219,184,0.4);
+}
+.vocab-pill.peach {
+  background: linear-gradient(135deg, rgba(255,218,185,0.25), rgba(255,255,255,0.9));
+  border-color: rgba(255,192,160,0.4);
+}
+.vocab-pill.sky {
+  background: linear-gradient(135deg, rgba(191,230,255,0.22), rgba(255,255,255,0.9));
+  border-color: rgba(128,204,255,0.4);
+}
+.vocab-pill.yellow {
+  background: linear-gradient(135deg, rgba(255,240,160,0.25), rgba(255,255,255,0.9));
+  border-color: rgba(255,224,102,0.4);
+}
+
+.badge-label {
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
+  padding: 3px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+.badge-u9 { background: var(--pink3); color: #8B2040; }
+.badge-u10 { background: rgba(212,187,255,0.5); color: #5A2090; }
+
+/* ===== GRAMMAR SECTION ===== */
+.flashcard-wrap { perspective: 1000px; margin-bottom: 16px; }
+.flashcard {
+  width: 100%; min-height: 220px;
+  position: relative; transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.fc-front, .fc-back {
+  position: absolute; inset: 0;
+  border-radius: 20px; padding: 28px 28px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; backface-visibility: hidden;
+  box-shadow: var(--card-shadow);
+}
+.fc-front {
+  background: linear-gradient(135deg, rgba(212,187,255,0.25), rgba(255,255,255,0.95));
+  border: 1.5px solid rgba(195,168,255,0.4);
+}
+.fc-back {
+  background: linear-gradient(135deg, rgba(181,234,215,0.25), rgba(255,255,255,0.95));
+  border: 1.5px solid rgba(125,219,184,0.4);
+  transform: rotateY(180deg);
+}
+.fc-topic { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.fc-sub   { font-size: 0.82rem; color: var(--text3); }
+.fc-content { font-size: 0.9rem; color: var(--text); line-height: 1.75; }
+.fc-hint {
+  font-size: 0.72rem; color: var(--text3); margin-top: 12px;
+  display: flex; align-items: center; gap: 4px;
+}
+
+.fc-controls {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+}
+.fc-btn {
+  padding: 9px 22px; border-radius: 999px; border: none; cursor: pointer;
+  font-family: 'Nunito', sans-serif; font-size: 0.88rem; font-weight: 700;
+  transition: all .18s;
+}
+.fc-btn.prev { background: var(--pink3); color: #7A2040; }
+.fc-btn.next { background: var(--lavender); color: #4A2080; }
+.fc-btn:hover { transform: scale(1.04); }
+.fc-btn:active { transform: scale(0.97); }
+.fc-prog { margin-left: auto; font-size: 0.85rem; color: var(--text2); font-weight: 700; }
+
+.grammar-quick { margin-top: 20px; }
+.gq-item {
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(212,187,255,0.35);
+  border-radius: 14px; padding: 14px 18px; margin-bottom: 10px;
+}
+.gq-title { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.gq-rule {
+  background: rgba(212,187,255,0.15); border-radius: 8px; padding: 6px 12px;
+  font-size: 0.85rem; color: #4A2080; font-family: monospace; margin-bottom: 6px; font-weight: 600;
+}
+.gq-example { font-size: 0.82rem; color: var(--text2); font-style: italic; }
+.highlight { color: #FF4080; font-weight: 700; font-style: normal; }
+.highlight2 { color: #7B2FBE; font-weight: 700; font-style: normal; }
+.highlight3 { color: #0A8060; font-weight: 700; font-style: normal; }
+
+/* ===== USEFUL LANGUAGE ===== */
+.phrase-card {
+  background: var(--white);
+  border-radius: 16px; padding: 16px 18px; margin-bottom: 10px;
+  border-left: 4px solid var(--mint2);
+  box-shadow: 0 2px 10px rgba(125,219,184,0.15);
+  transition: all .2s;
+}
+.phrase-card:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(125,219,184,0.25); }
+.phrase-card.pink { border-left-color: var(--pink2); box-shadow: 0 2px 10px rgba(255,133,161,0.15); }
+.phrase-card.pink:hover { box-shadow: 0 4px 16px rgba(255,133,161,0.25); }
+.phrase-card.lav { border-left-color: var(--lav2); box-shadow: 0 2px 10px rgba(195,168,255,0.15); }
+.phrase-card.lav:hover { box-shadow: 0 4px 16px rgba(195,168,255,0.25); }
+.phrase-card.peach { border-left-color: var(--peach2); box-shadow: 0 2px 10px rgba(255,192,160,0.15); }
+.phrase-card.sky { border-left-color: var(--sky2); }
+
+.phrase-en { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.phrase-th { font-size: 0.82rem; color: var(--text2); margin-bottom: 5px; }
+.phrase-ex { font-size: 0.8rem; color: var(--text3); font-style: italic; }
+
+/* ===== READING ===== */
+.reading-passage {
+  background: rgba(255,255,255,0.92);
+  border: 1.5px solid rgba(255,218,185,0.5);
+  border-radius: 16px; padding: 20px 22px;
+  font-size: 0.88rem; line-height: 1.8; color: var(--text2);
+  margin-bottom: 16px;
+}
+.reading-passage .passage-title { font-weight: 800; color: var(--text); font-size: 1rem; margin-bottom: 10px; }
+.mark { background: rgba(255,240,160,0.65); border-radius: 3px; padding: 0 2px; font-weight: 700; color: var(--text); }
+
+.tf-list { list-style: none; }
+.tf-item {
+  padding: 12px 16px; border-radius: 12px; margin-bottom: 8px;
+  background: rgba(255,255,255,0.85); border: 1.5px solid rgba(255,218,185,0.4);
+  font-size: 0.87rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
+  transition: all .2s;
+}
+.tf-item:hover { background: rgba(255,240,160,0.2); }
+.tf-item.revealed.true  { background: rgba(181,234,215,0.3); border-color: var(--mint2); }
+.tf-item.revealed.false { background: rgba(255,179,198,0.25); border-color: var(--pink2); }
+.tf-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+  background: rgba(255,218,185,0.5); color: #7A4020;
+}
+.tf-item.revealed.true  .tf-badge { background: var(--mint2); color: #fff; }
+.tf-item.revealed.false .tf-badge { background: var(--pink2); color: #fff; }
+
+.quiz-section { margin-top: 20px; }
+.quiz-q { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.quiz-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.choice-btn {
+  padding: 10px 14px; border-radius: 12px; border: 1.5px solid rgba(195,168,255,0.4);
+  background: rgba(255,255,255,0.9); color: var(--text);
+  font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; text-align: left; transition: all .18s;
+}
+.choice-btn:hover { background: rgba(212,187,255,0.2); transform: scale(1.02); }
+.choice-btn.correct { background: rgba(181,234,215,0.4); border-color: var(--mint2); color: #0A6040; }
+.choice-btn.wrong   { background: rgba(255,179,198,0.35); border-color: var(--pink2); color: #8B2040; }
+.choice-btn:disabled { cursor: default; }
+
+.score-display {
+  text-align: center; padding: 20px;
+  background: linear-gradient(135deg, rgba(255,179,198,0.2), rgba(212,187,255,0.2));
+  border-radius: 16px; font-weight: 700; font-size: 1rem; color: var(--text);
+  margin-bottom: 14px;
+}
+.score-display .big-score { font-size: 2.5rem; font-weight: 900; color: var(--pink2); }
+
+.next-btn {
+  padding: 10px 24px; border-radius: 999px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--pink), var(--lavender));
+  color: #fff; font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 700;
+  box-shadow: 0 4px 14px rgba(255,133,161,0.3); transition: all .2s;
+}
+.next-btn:hover { transform: scale(1.04); box-shadow: 0 6px 20px rgba(255,133,161,0.4); }
+.restart-btn {
+  padding: 10px 24px; border-radius: 999px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--mint), var(--sky));
+  color: #fff; font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 700;
+  box-shadow: 0 4px 14px rgba(125,219,184,0.3); transition: all .2s; margin-left: 8px;
+}
+.restart-btn:hover { transform: scale(1.04); }
+
+/* Irregular verbs table */
+.irr-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+.irr-table th { background: linear-gradient(135deg,var(--pink3),var(--lavender)); color: var(--text); font-weight: 700; padding: 10px 12px; text-align: center; }
+.irr-table td { padding: 8px 12px; text-align: center; border-bottom: 1px solid rgba(180,100,140,0.1); }
+.irr-table tr:hover td { background: rgba(255,179,198,0.1); }
+.irr-table .v1 { font-weight: 700; color: var(--text); }
+.irr-table .v2 { color: #7B2FBE; font-weight: 600; }
+.irr-table .v3 { color: #0A8060; font-weight: 600; }
+.irr-table .meaning { color: var(--text2); }
+
+/* Saving face tips */
+.tip-box {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: rgba(255,255,255,0.85); border-radius: 14px; padding: 14px 16px;
+  border: 1.5px solid rgba(212,187,255,0.35); margin-bottom: 10px;
+}
+.tip-icon { font-size: 1.4rem; flex-shrink: 0; }
+.tip-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.tip-text  { font-size: 0.8rem; color: var(--text2); }
+
+/* pronouns table */
+.pronoun-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; text-align: center; }
+.pronoun-table th { padding: 10px; font-weight: 700; font-size: 0.8rem; }
+.pronoun-table td { padding: 8px 10px; border: 1px solid rgba(180,100,140,0.12); }
+.pronoun-table .row-head { font-weight: 700; color: var(--text); }
+.pronoun-table .subject-h { background: rgba(255,179,198,0.3); }
+.pronoun-table .object-h  { background: rgba(212,187,255,0.3); }
+.pronoun-table .possess-h { background: rgba(181,234,215,0.3); }
+.pronoun-table .reflex-h  { background: rgba(255,218,185,0.4); }
+.pronoun-table .subject   { background: rgba(255,179,198,0.12); }
+.pronoun-table .object    { background: rgba(212,187,255,0.12); }
+.pronoun-table .possess   { background: rgba(181,234,215,0.12); }
+.pronoun-table .reflex    { background: rgba(255,218,185,0.2); }
+
+/* passive table */
+.passive-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.passive-table th { background: rgba(212,187,255,0.4); padding: 8px 12px; font-weight: 700; }
+.passive-table td { padding: 8px 12px; border-bottom: 1px solid rgba(180,100,140,0.1); }
+.passive-table .tense { font-weight: 700; color: var(--text); }
+.passive-table .formula { font-family: monospace; color: #7B2FBE; font-size: 0.8rem; }
+.passive-table .example { color: var(--text2); font-style: italic; font-size: 0.78rem; }
+
+/* quant section */
+.quant-row {
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 0; border-bottom: 1px solid rgba(180,100,140,0.1);
+  padding: 10px 0; align-items: start;
+}
+.quant-word { font-size: 1rem; font-weight: 800; color: var(--text); }
+.quant-details { font-size: 0.83rem; color: var(--text2); }
+.quant-rule { font-size: 0.78rem; font-family: monospace; color: #7B2FBE; font-weight: 600; margin: 2px 0; }
+.quant-ex { font-size: 0.78rem; color: var(--text3); font-style: italic; }
+
+/* Deco emojis floating */
+.float-deco {
+  position: fixed; pointer-events: none; font-size: 1.5rem; opacity: 0.18; z-index: 0;
+  animation: drift 8s ease-in-out infinite;
+}
+.float-deco:nth-child(2) { animation-delay: -2s; }
+.float-deco:nth-child(3) { animation-delay: -4s; }
+.float-deco:nth-child(4) { animation-delay: -6s; }
+@keyframes drift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-15px) rotate(5deg)} }
+
+.nav-hint {
+  text-align: center; font-size: 0.78rem; color: var(--text3); margin-bottom: 20px; font-weight: 600;
+}
+
+/* exam info */
+.exam-info-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 10px; margin-bottom: 20px;
+}
+.exam-info-card {
+  border-radius: 14px; padding: 14px 16px; text-align: center;
+  font-size: 0.82rem; font-weight: 700; color: var(--text);
+}
+.ei-1 { background: linear-gradient(135deg, rgba(255,179,198,0.35), rgba(255,200,216,0.25)); border: 1.5px solid rgba(255,179,198,0.5); }
+.ei-2 { background: linear-gradient(135deg, rgba(212,187,255,0.35), rgba(195,168,255,0.2)); border: 1.5px solid rgba(212,187,255,0.5); }
+.ei-3 { background: linear-gradient(135deg, rgba(181,234,215,0.35), rgba(125,219,184,0.2)); border: 1.5px solid rgba(181,234,215,0.5); }
+.ei-4 { background: linear-gradient(135deg, rgba(255,218,185,0.4), rgba(255,192,160,0.2)); border: 1.5px solid rgba(255,218,185,0.5); }
+.exam-info-card .ei-num { font-size: 1.5rem; font-weight: 900; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="float-deco" style="top:10%;left:5%">🌸</div>
+<div class="float-deco" style="top:30%;right:4%">✨</div>
+<div class="float-deco" style="top:60%;left:3%">🌷</div>
+<div class="float-deco" style="top:80%;right:5%">🍬</div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="whale">🐳</span>
+    <h1>English 2 — Unit 9 &amp; 10</h1>
+    <div class="subtitle">LI101002 Final Exam Review ✨</div>
+    <div class="exam-badge">📅 สอบ 23 มีนาคม 2568 &nbsp;|&nbsp; ⏰ 08.30–12.00 &nbsp;|&nbsp; ✏️ ดินสอ 2B</div>
+  </div>
+
+  <!-- EXAM OVERVIEW -->
+  <div class="exam-info-grid">
+    <div class="exam-info-card ei-1"><span class="ei-num">30</span>Part 1 Vocabulary<br><small>คำศัพท์ + Reading</small></div>
+    <div class="exam-info-card ei-2"><span class="ei-num">30</span>Part 2 Grammar<br><small>Pronouns / Passive / Quantifiers</small></div>
+    <div class="exam-info-card ei-3"><span class="ei-num">20</span>Part 3 Useful Language<br><small>Phrases &amp; Conversations</small></div>
+    <div class="exam-info-card ei-4"><span class="ei-num">20</span>Part 4 Reading<br><small>Seen + Unseen Passages</small></div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn tab-vocab active"   onclick="showTab('vocab')">🌸 Vocabulary</button>
+    <button class="tab-btn tab-grammar"        onclick="showTab('grammar')">💜 Grammar</button>
+    <button class="tab-btn tab-useful"         onclick="showTab('useful')">🌿 Useful Language</button>
+    <button class="tab-btn tab-reading"        onclick="showTab('reading')">🍑 Reading + Quiz</button>
+  </div>
+
+  <!-- ===================== VOCAB ===================== -->
+  <div id="sec-vocab" class="section active">
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--pink2)"></div>Unit 9 — World Building 🏰</div>
+      <span class="badge-label badge-u9">Unit 9</span>
+      <div class="vocab-grid">
+        <div class="vocab-pill"><div class="en">imaginary <span style="font-weight:400;font-size:.78rem">(adj.)</span></div><div class="th">ในจินตนาการ / สมมติ</div><div class="ex">an <em>imaginary</em> place for the story</div></div>
+        <div class="vocab-pill mint"><div class="en">elements <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">องค์ประกอบ / ส่วนประกอบ</div><div class="ex">the <em>elements</em> of a world</div></div>
+        <div class="vocab-pill lav"><div class="en">fantasy <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">แฟนตาซี / เรื่องเหนือจริง</div><div class="ex">a <em>fantasy</em> story like Lord of the Rings</div></div>
+        <div class="vocab-pill sky"><div class="en">technology <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">เทคโนโลยี</div><div class="ex">the level of <em>technology</em></div></div>
+        <div class="vocab-pill yellow"><div class="en">characters <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">ตัวละคร</div><div class="ex"><em>characters</em> live in the society</div></div>
+        <div class="vocab-pill peach"><div class="en">to settle <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">ตั้งรกราก / ถิ่นฐาน</div><div class="ex">The family decided to <em>settle</em> in the countryside.</div></div>
+        <div class="vocab-pill"><div class="en">period = era <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">ช่วงเวลา / ยุค</div><div class="ex">the Golden <em>Period</em></div></div>
+        <div class="vocab-pill mint"><div class="en">rural = countryside <span style="font-weight:400;font-size:.78rem">(adj.)</span></div><div class="th">ท้องถิ่น / ชนบท</div><div class="ex">the <em>rural</em> area</div></div>
+        <div class="vocab-pill lav"><div class="en">civilization <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">อารยธรรม</div><div class="ex">ancient Egyptian <em>civilization</em></div></div>
+        <div class="vocab-pill sky"><div class="en">be ruled by <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">ถูกปกครองโดย</div><div class="ex">This country <em>was ruled by</em> a king.</div></div>
+        <div class="vocab-pill yellow"><div class="en">date back to <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">ย้อนกลับไปถึง (ช่วงเวลา)</div><div class="ex">The site <em>dates back to</em> ancient civilization.</div></div>
+        <div class="vocab-pill peach"><div class="en">a historic site <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">แหล่งประวัติศาสตร์</div><div class="ex">a popular tourist destination</div></div>
+        <div class="vocab-pill"><div class="en">inhabitants = citizens <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">พลเมือง / ผู้อยู่อาศัย</div><div class="ex"><em>inhabitants</em> of the island</div></div>
+        <div class="vocab-pill mint"><div class="en">ruins <span style="font-weight:400;font-size:.78rem">(n.)</span></div><div class="th">ซากปรักหักพัง</div><div class="ex">The city was left in <em>ruins</em>.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--lav2)"></div>Unit 10 — Making Excuses &amp; Saving Face 🎭</div>
+      <span class="badge-label badge-u10">Unit 10</span>
+      <div class="vocab-grid">
+        <div class="vocab-pill lav"><div class="en">make an excuse up <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">คิดข้ออ้าง / อ้างเหตุผล</div><div class="ex">He <em>made up an excuse</em> for not attending.</div></div>
+        <div class="vocab-pill"><div class="en">hide emotions <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">ซ่อนความรู้สึก / ปิดบังอารมณ์</div><div class="ex">She tried to <em>hide her emotions</em>.</div></div>
+        <div class="vocab-pill mint"><div class="en">pretend <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">แสร้ง / แกล้งทำเป็น</div><div class="ex">He <em>pretended</em> to be sick.</div></div>
+        <div class="vocab-pill sky"><div class="en">suspicious <span style="font-weight:400;font-size:.78rem">(adj.)</span></div><div class="th">ที่น่าสงสัย / พิรุธ</div><div class="ex"><em>suspicious</em> behavior</div></div>
+        <div class="vocab-pill yellow"><div class="en">spread lies <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">เผยแพร่ข้อมูลเท็จ</div><div class="ex">She <em>spread lies</em> about her rival.</div></div>
+        <div class="vocab-pill peach"><div class="en">blame <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">กล่าวโทษ</div><div class="ex">He <em>blamed</em> his brother for breaking the vase.</div></div>
+        <div class="vocab-pill"><div class="en">cheat on + คน <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">โกง / นอกใจ (cheat on คน)</div><div class="ex">She <em>cheated on</em> her exam.</div></div>
+        <div class="vocab-pill lav"><div class="en">dishonest <span style="font-weight:400;font-size:.78rem">(adj.)</span></div><div class="th">ไม่ซื่อสัตย์</div><div class="ex">a <em>dishonest</em> business owner</div></div>
+        <div class="vocab-pill mint"><div class="en">honest <span style="font-weight:400;font-size:.78rem">(adj.)</span></div><div class="th">ซื่อสัตย์</div><div class="ex">an <em>honest</em> person who always tells the truth</div></div>
+        <div class="vocab-pill sky"><div class="en">tell a white lie <span style="font-weight:400;font-size:.78rem">(v.)</span></div><div class="th">โกหกสีขาว / เรื่องเล็กๆ</div><div class="ex">She <em>told a white lie</em> to avoid hurting feelings.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--mint2)"></div>Saving Face — แนวคิดสำคัญ 🌸</div>
+      <div style="font-size:0.87rem;color:var(--text2);margin-bottom:14px;line-height:1.7"><b style="color:var(--text)">Face</b> = ภาพลักษณ์ / ศักดิ์ศรีในสังคม — ต้องระวังไม่ให้คนอื่น "เสียหน้า"</div>
+      <div class="tip-box"><div class="tip-icon">💬</div><div><div class="tip-title">Be tactful</div><div class="tip-text">หลีกเลี่ยงการพูดสิ่งที่อาจทำให้คนอื่นไม่พอใจ</div></div></div>
+      <div class="tip-box"><div class="tip-icon">🔒</div><div><div class="tip-title">Do in private</div><div class="tip-text">ถ้าต้องชี้ข้อผิดพลาด ควรทำแบบส่วนตัว ไม่ต่อหน้าคนอื่น</div></div></div>
+      <div class="tip-box"><div class="tip-icon">🤫</div><div><div class="tip-title">Do quietly</div><div class="tip-text">ไม่เห็นด้วยก็ควรพูดอย่างสุภาพ ไม่ให้เป็นเรื่องใหญ่</div></div></div>
+      <div class="tip-box"><div class="tip-icon">❌</div><div><div class="tip-title">No and give a reason</div><div class="tip-text">ถ้าต้องปฏิเสธ ให้เหตุผล และพูดอย่างจริงใจ</div></div></div>
+      <div class="tip-box"><div class="tip-icon">🚫</div><div><div class="tip-title">Avoid sensitive topics</div><div class="tip-text">หลีกเลี่ยงหัวข้ออ่อนไหว เช่น เงิน การเมือง</div></div></div>
+    </div>
+
+  </div><!-- end vocab -->
+
+  <!-- ===================== GRAMMAR ===================== -->
+  <div id="sec-grammar" class="section">
+
+    <!-- Flashcard -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--lav2)"></div>Grammar Flashcards — กดเพื่อพลิก! 💜</div>
+      <div class="flashcard-wrap">
+        <div class="flashcard" id="flashcard" onclick="flipCard()">
+          <div class="fc-front">
+            <div id="fc-badge" class="badge-label badge-u9">Unit 9</div>
+            <div class="fc-topic" id="fc-topic">Subject Pronouns</div>
+            <div class="fc-sub" id="fc-sub">สรรพนามประธาน</div>
+            <div class="fc-hint">👆 แตะเพื่อดูคำตอบ</div>
+          </div>
+          <div class="fc-back">
+            <div class="fc-content" id="fc-content">loading...</div>
+            <div class="fc-hint" style="margin-top:16px">👆 แตะเพื่อกลับ</div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="fc-btn prev" onclick="prevCard()">← ก่อนหน้า</button>
+        <button class="fc-btn next" onclick="nextCard()">ถัดไป →</button>
+        <span class="fc-prog" id="fc-prog">1 / 12</span>
+      </div>
+    </div>
+
+    <!-- Pronouns Table -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--pink2)"></div>ตารางสรุป Pronouns ทั้ง 4 ประเภท</div>
+      <div style="overflow-x:auto">
+      <table class="pronoun-table">
+        <tr>
+          <th class="subject-h">Subject<br>ประธาน</th>
+          <th class="object-h">Object<br>กรรม</th>
+          <th class="possess-h">Possessive<br>เจ้าของ</th>
+          <th class="reflex-h">Reflexive<br>ตัวเอง</th>
+        </tr>
+        <tr>
+          <td class="subject">I (ฉัน)</td><td class="object">Me</td><td class="possess">Mine</td><td class="reflex">Myself</td>
+        </tr>
+        <tr>
+          <td class="subject">You (คุณ)</td><td class="object">You</td><td class="possess">Yours</td><td class="reflex">Yourself</td>
+        </tr>
+        <tr>
+          <td class="subject">He (เขา♂)</td><td class="object">Him</td><td class="possess">His</td><td class="reflex">Himself</td>
+        </tr>
+        <tr>
+          <td class="subject">She (เธอ♀)</td><td class="object">Her</td><td class="possess">Hers</td><td class="reflex">Herself</td>
+        </tr>
+        <tr>
+          <td class="subject">It (มัน)</td><td class="object">It</td><td class="possess">Its</td><td class="reflex">Itself</td>
+        </tr>
+        <tr>
+          <td class="subject">We (พวกเรา)</td><td class="object">Us</td><td class="possess">Ours</td><td class="reflex">Ourselves</td>
+        </tr>
+        <tr>
+          <td class="subject">They (พวกเขา)</td><td class="object">Them</td><td class="possess">Theirs</td><td class="reflex">Themselves</td>
+        </tr>
+      </table>
+      </div>
+      <div style="margin-top:12px;background:rgba(255,240,160,0.35);border-radius:10px;padding:10px 14px;font-size:0.82rem;color:var(--text)">
+        💡 <b>Possessive pronouns</b> (mine/yours/his...) ไม่ต้องมีคำนามตาม ต่างจาก <b>my/your/his...</b> ที่ต้องมีนามตามหลังเสมอ<br>
+        ✅ <em>This book is <b>mine</b>.</em> &nbsp;|&nbsp; ✅ <em>This is <b>my</b> book.</em>
+      </div>
+    </div>
+
+    <!-- Passive Voice -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--mint2)"></div>Passive Voice — ประธานถูกกระทำ 🔄</div>
+      <div class="gq-item">
+        <div class="gq-title">โครงสร้างหลัก</div>
+        <div class="gq-rule">S + v.to be + Past Participle (V3)</div>
+        <div class="gq-example">แมวกินปลา = <span class="highlight">Active</span> → ปลาถูกแมวกิน = <span class="highlight2">Passive</span></div>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="passive-table">
+        <tr><th>Tense</th><th>สูตร</th><th>ตัวอย่าง</th></tr>
+        <tr><td class="tense">Present Simple</td><td class="formula">is/am/are + V3</td><td class="example">A new school <b>is built</b> every year.</td></tr>
+        <tr><td class="tense">Present Cont.</td><td class="formula">is/am/are + being + V3</td><td class="example">A bridge <b>is being constructed</b>.</td></tr>
+        <tr><td class="tense">Present Perfect</td><td class="formula">has/have + been + V3</td><td class="example">The decision <b>has been made</b>.</td></tr>
+        <tr><td class="tense">Past Simple</td><td class="formula">was/were + V3</td><td class="example">The letter <b>was sent</b> yesterday.</td></tr>
+        <tr><td class="tense">Past Cont.</td><td class="formula">was/were + being + V3</td><td class="example">A new law <b>was being discussed</b>.</td></tr>
+        <tr><td class="tense">Future Simple</td><td class="formula">will be + V3</td><td class="example">Results <b>will be announced</b> soon.</td></tr>
+        <tr><td class="tense">Modal Verbs</td><td class="formula">can/must/should + be + V3</td><td class="example">Rules <b>must be followed</b>.</td></tr>
+      </table>
+      </div>
+      <div style="margin-top:12px;background:rgba(181,234,215,0.25);border-radius:10px;padding:10px 14px;font-size:0.82rem;color:var(--text)">
+        🌿 ใส่ <b>by + ผู้กระทำ</b> เมื่อต้องการระบุว่าใครทำ เช่น <em>The painting <b>was created by</b> Van Gogh.</em><br>
+        ❌ ไม่ต้องใส่ by เมื่อผู้กระทำเป็น people / someone / they / workers
+      </div>
+    </div>
+
+    <!-- Quantifiers -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--peach2)"></div>Quantifiers — คำบอกปริมาณ 📊</div>
+      <div class="quant-row"><div class="quant-word">🩷 Some</div><div class="quant-details"><div class="quant-rule">Some + นามนับได้พหูพจน์ / นามนับไม่ได้</div><div>ใช้ในประโยค<b>บอกเล่า</b> และถามแบบคาดว่าตอบ "ใช่"</div><div class="quant-ex">I have <b>some</b> books. | Would you like <b>some</b> tea?</div></div></div>
+      <div class="quant-row"><div class="quant-word">💜 Any</div><div class="quant-details"><div class="quant-rule">Any + นามนับได้พหูพจน์ / นามนับไม่ได้</div><div>ใช้ในประโยค<b>ถาม & ปฏิเสธ</b> และในประโยคเงื่อนไข</div><div class="quant-ex">I don't have <b>any</b> money. | Do you have <b>any</b> questions?</div></div></div>
+      <div class="quant-row"><div class="quant-word">💚 All</div><div class="quant-details"><div class="quant-rule">All + นามพหูพจน์ / นามนับไม่ได้</div><div>ทั้งหมด — มองเป็น<b>กลุ่ม</b> | All สามารถใช้เดี่ยวโดยไม่มีนาม</div><div class="quant-ex"><b>All</b> students must wear uniforms.</div></div></div>
+      <div class="quant-row"><div class="quant-word">🩷 Every</div><div class="quant-details"><div class="quant-rule">Every + นามเอกพจน์เสมอ</div><div>ทุกๆ — มองเป็น<b>รายบุคคล</b> | Every ต้องตามด้วยนาม</div><div class="quant-ex"><b>Every</b> student must wear a uniform.</div></div></div>
+      <div class="quant-row"><div class="quant-word">💙 Both</div><div class="quant-details"><div class="quant-rule">Both + นามพหูพจน์ → กริยาพหูพจน์</div><div>ทั้งสอง (A และ B)</div><div class="quant-ex"><b>Both</b> restaurants were closed.</div></div></div>
+      <div class="quant-row"><div class="quant-word">💛 Either</div><div class="quant-details"><div class="quant-rule">Either + นามเอกพจน์ → กริยาเอกพจน์</div><div>อย่างใดอย่างหนึ่งในสอง</div><div class="quant-ex">You can sit on <b>either</b> side of the table.</div></div></div>
+      <div class="quant-row"><div class="quant-word">🖤 Neither</div><div class="quant-details"><div class="quant-rule">Neither + นามเอกพจน์ → กริยาเอกพจน์</div><div>ไม่ใช่ทั้งสอง — มีความหมายปฏิเสธในตัว <b>ไม่ใช้คู่กับ no/not!</b></div><div class="quant-ex"><b>Neither</b> of them knows the answer.</div></div></div>
+      <div class="quant-row"><div class="quant-word">🌸 Much</div><div class="quant-details"><div class="quant-rule">Much + นามนับไม่ได้</div><div>มักใช้ในปฏิเสธ & คำถาม | ในบอกเล่าใช้ a lot of แทน</div><div class="quant-ex">I don't have <b>much</b> time.</div></div></div>
+      <div class="quant-row" style="border-bottom:none"><div class="quant-word">🌺 Many</div><div class="quant-details"><div class="quant-rule">Many + นามนับได้พหูพจน์</div><div>ใช้ได้ทั้งบอกเล่า ถาม ปฏิเสธ</div><div class="quant-ex"><b>Many</b> students find math difficult.</div></div></div>
+
+      <div style="margin-top:14px;background:rgba(255,240,160,0.35);border-radius:10px;padding:10px 14px;font-size:0.82rem;color:var(--text)">
+        💡 <b>All of / Most of / None of</b> ใช้กับคำนามที่เฉพาะเจาะจง ตามด้วย <b>the / my / your / these / those / us / them</b><br>
+        เช่น <em>All of <b>my</b> friends love traveling.</em> | <em>None of <b>the</b> students were late.</em>
+      </div>
+    </div>
+
+    <!-- Verbs of Senses -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--sky2)"></div>Verbs of the Senses 👁️👂👃✋</div>
+      <div class="grammar-quick">
+        <div class="gq-item">
+          <div class="gq-title">💡 ใช้กับ Adjective (adj.) ตรงๆ</div>
+          <div class="gq-rule">look / sound / smell / feel / seem + adj.</div>
+          <div class="gq-example">She <span class="highlight">looks</span> <b>happy</b>. | That music <span class="highlight">sounds</span> <b>beautiful</b>.</div>
+        </div>
+        <div class="gq-item">
+          <div class="gq-title">💡 ใช้กับ like + Noun (เปรียบเทียบ)</div>
+          <div class="gq-rule">look/sound/smell/feel/seem + like + noun</div>
+          <div class="gq-example">You <span class="highlight">look like</span> <b>your dad</b>. | That <span class="highlight">sounds like</span> <b>a good idea</b>.</div>
+        </div>
+        <div class="gq-item">
+          <div class="gq-title">💡 ใช้กับ as if / as though / like + Clause</div>
+          <div class="gq-rule">look/feel/seem + as if/as though/like + clause</div>
+          <div class="gq-example">You <span class="highlight">look as if</span> <b>you've seen a ghost</b>.</div>
+        </div>
+        <div class="gq-item" style="background:rgba(255,179,198,0.15);border-color:rgba(255,133,161,0.3)">
+          <div class="gq-title">⚠️ Look vs Seem — ระวัง!</div>
+          <div class="gq-example">
+            <b>Look</b> = สัมผัสจากการ<span class="highlight">เห็น</span> → "You look tired."<br>
+            <b>Seem</b> = สัมผัสจาก<span class="highlight2">พฤติกรรม</span> → "You seem tired." (จากพฤติกรรมที่เห็น)<br>
+            ❌ "You seem beautiful." — <b>ผิด!</b> ใช้ look beautiful แทน
+          </div>
+        </div>
+        <div class="gq-item" style="background:rgba(212,187,255,0.15)">
+          <div class="gq-title">⚠️ Stative Verbs — ห้ามใช้ Continuous!</div>
+          <div class="gq-example">
+            ❌ It's <b>looking</b> as if it's going to rain.<br>
+            ✅ It <b>looks</b> as if it's going to rain.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Irregular Verbs -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--pink2)"></div>Irregular Verbs สำคัญ 📚</div>
+      <div style="overflow-x:auto">
+      <table class="irr-table">
+        <tr><th>Base (V1)</th><th>Past (V2)</th><th>Past Participle (V3)</th><th>ความหมาย</th></tr>
+        <tr><td class="v1">be</td><td class="v2">was/were</td><td class="v3">been</td><td class="meaning">เป็น/อยู่/คือ</td></tr>
+        <tr><td class="v1">become</td><td class="v2">became</td><td class="v3">become</td><td class="meaning">กลายเป็น</td></tr>
+        <tr><td class="v1">begin</td><td class="v2">began</td><td class="v3">begun</td><td class="meaning">เริ่มต้น</td></tr>
+        <tr><td class="v1">break</td><td class="v2">broke</td><td class="v3">broken</td><td class="meaning">ทำแตก/หัก</td></tr>
+        <tr><td class="v1">build</td><td class="v2">built</td><td class="v3">built</td><td class="meaning">สร้าง</td></tr>
+        <tr><td class="v1">buy</td><td class="v2">bought</td><td class="v3">bought</td><td class="meaning">ซื้อ</td></tr>
+        <tr><td class="v1">choose</td><td class="v2">chose</td><td class="v3">chosen</td><td class="meaning">เลือก</td></tr>
+        <tr><td class="v1">find</td><td class="v2">found</td><td class="v3">found</td><td class="meaning">พบ/เจอ</td></tr>
+        <tr><td class="v1">fly</td><td class="v2">flew</td><td class="v3">flown</td><td class="meaning">บิน</td></tr>
+        <tr><td class="v1">forget</td><td class="v2">forgot</td><td class="v3">forgotten</td><td class="meaning">ลืม</td></tr>
+        <tr><td class="v1">give</td><td class="v2">gave</td><td class="v3">given</td><td class="meaning">ให้</td></tr>
+        <tr><td class="v1">go</td><td class="v2">went</td><td class="v3">gone</td><td class="meaning">ไป</td></tr>
+        <tr><td class="v1">hide</td><td class="v2">hid</td><td class="v3">hidden</td><td class="meaning">ซ่อน</td></tr>
+        <tr><td class="v1">know</td><td class="v2">knew</td><td class="v3">known</td><td class="meaning">รู้/รู้จัก</td></tr>
+        <tr><td class="v1">lie</td><td class="v2">lay</td><td class="v3">lain</td><td class="meaning">นอนราบ</td></tr>
+        <tr><td class="v1">lose</td><td class="v2">lost</td><td class="v3">lost</td><td class="meaning">สูญเสีย/หาย</td></tr>
+        <tr><td class="v1">rise</td><td class="v2">rose</td><td class="v3">risen</td><td class="meaning">ลุกขึ้น/ขึ้น</td></tr>
+        <tr><td class="v1">steal</td><td class="v2">stole</td><td class="v3">stolen</td><td class="meaning">ขโมย</td></tr>
+        <tr><td class="v1">teach</td><td class="v2">taught</td><td class="v3">taught</td><td class="meaning">สอน</td></tr>
+        <tr><td class="v1">write</td><td class="v2">wrote</td><td class="v3">written</td><td class="meaning">เขียน</td></tr>
+      </table>
+      </div>
+    </div>
+
+  </div><!-- end grammar -->
+
+  <!-- ===================== USEFUL ===================== -->
+  <div id="sec-useful" class="section">
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--mint2)"></div>Unit 9 — Persuading People 💬</div>
+      <div class="phrase-card"><div class="phrase-en">If that's the case, it makes sense to...</div><div class="phrase-th">ถ้าเป็นเช่นนั้น ก็สมเหตุสมผลที่จะ...</div><div class="phrase-ex">"If that's the case, it makes sense to try this method."</div></div>
+      <div class="phrase-card"><div class="phrase-en">If it works for them, it probably works for you, too.</div><div class="phrase-th">ถ้าใช้ได้กับพวกเขา น่าจะใช้ได้กับคุณด้วย</div><div class="phrase-ex">ใช้ชี้ว่าสิ่งที่ใช้ได้กับคนอื่น ก็ควรได้ผลกับคุณ</div></div>
+      <div class="phrase-card"><div class="phrase-en">If you look at the facts, you'll see that...</div><div class="phrase-th">ถ้าดูตามข้อเท็จจริง คุณจะเห็นว่า...</div><div class="phrase-ex">ใช้เน้นย้ำข้อเท็จจริงสนับสนุนข้อโต้แย้ง</div></div>
+      <div class="phrase-card"><div class="phrase-en">The numbers clearly suggest that...</div><div class="phrase-th">ตัวเลขชี้ให้เห็นอย่างชัดเจนว่า...</div><div class="phrase-ex">"The numbers clearly suggest that this method increases efficiency."</div></div>
+      <div class="phrase-card"><div class="phrase-en">In the same way, you might find that...</div><div class="phrase-th">ในทำนองเดียวกัน คุณอาจพบว่า...</div><div class="phrase-ex">ใช้เปรียบเทียบหรือชี้ให้เห็นความเหมือน</div></div>
+      <div class="phrase-card"><div class="phrase-en">Lots of people I know use this and they don't have a problem.</div><div class="phrase-th">หลายคนที่ฉันรู้จักใช้สิ่งนี้และไม่มีปัญหา</div><div class="phrase-ex">ใช้ยืนยันว่าแนวทางนี้ใช้ได้กับคนอื่นๆ</div></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--sky2)"></div>Unit 9 — Describing Historical Figures 🏛️</div>
+      <div class="phrase-card sky"><div class="phrase-en">She is said to...</div><div class="phrase-th">ถูกกล่าวว่า... (มีคนพูดถึงหรือเชื่อกันทั่วไป)</div><div class="phrase-ex">"She <b>is said to</b> have been the first female president."</div></div>
+      <div class="phrase-card sky"><div class="phrase-en">She is best-known / most famous for...</div><div class="phrase-th">เธอเป็นที่รู้จักดีที่สุดสำหรับ...</div><div class="phrase-ex">"He <b>is best-known for</b> his role in ending apartheid."</div></div>
+      <div class="phrase-card sky"><div class="phrase-en">Thanks to his...talents, he...</div><div class="phrase-th">ด้วยพรสวรรค์ทาง...ของเขา เขาจึง...</div><div class="phrase-ex">"<b>Thanks to his</b> mathematical talents, he developed new theories."</div></div>
+      <div class="phrase-card sky"><div class="phrase-en">She made great contributions to...</div><div class="phrase-th">เธอมีส่วนร่วมอย่างมากใน...</div><div class="phrase-ex">"She <b>made great contributions to</b> the field of medicine."</div></div>
+      <div class="phrase-card sky"><div class="phrase-en">She was ahead of her time.</div><div class="phrase-th">เธอเป็นผู้นำในยุคของเธอ (คิดล้ำกว่าคนในยุคนั้น)</div><div class="phrase-ex">"She <b>was ahead of her time</b> in advocating for women's rights."</div></div>
+      <div class="phrase-card sky"><div class="phrase-en">He devoted his entire life to...</div><div class="phrase-th">เขาทุ่มเทชีวิตทั้งหมดให้กับ...</div><div class="phrase-ex">"He <b>devoted his entire life to</b> studying the stars."</div></div>
+      <div class="phrase-card sky"><div class="phrase-en">One of his major achievements was...</div><div class="phrase-th">หนึ่งในความสำเร็จสำคัญของเขาคือ...</div><div class="phrase-ex">"<b>One of his major achievements was</b> the discovery of penicillin."</div></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--lav2)"></div>Unit 10 — Being Tactful in Sensitive Situations 🤝</div>
+      <div class="phrase-card lav"><div class="phrase-en">Do you mind if I ask you...?</div><div class="phrase-th">คุณจะรังเกียจไหมถ้าฉันถาม...?</div><div class="phrase-ex">"<b>Do you mind if I ask you</b> about your experience working here?"</div></div>
+      <div class="phrase-card lav"><div class="phrase-en">Are you sure that's correct? It's just that...</div><div class="phrase-th">คุณแน่ใจไหมว่าถูก? มันก็เพราะว่า...</div><div class="phrase-ex">"<b>Are you sure that's correct? It's just that</b> I thought the deadline was next week."</div></div>
+      <div class="phrase-card lav"><div class="phrase-en">I may be wrong, but I think that...</div><div class="phrase-th">ฉันอาจจะผิด แต่ฉันคิดว่า...</div><div class="phrase-ex">"<b>I may be wrong, but I think that</b> project is behind schedule."</div></div>
+      <div class="phrase-card lav"><div class="phrase-en">That's a very good point, but...</div><div class="phrase-th">นั่นเป็นประเด็นที่ดีมาก แต่...</div><div class="phrase-ex">"<b>That's a very good point, but</b> I think we should also consider the budget."</div></div>
+      <div class="phrase-card lav"><div class="phrase-en">...or would you prefer it if we didn't talk about that?</div><div class="phrase-th">หรือคุณจะชอบมากกว่าถ้าเราหลีกเลี่ยงการพูดถึงเรื่องนั้น?</div><div class="phrase-ex">ใช้ยกเลิกการพูดถึงเรื่องที่อาจทำให้ไม่สบายใจ</div></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--peach2)"></div>Unit 10 — Accepting &amp; Declining Invitations 💌</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;color:var(--mint2);margin-bottom:10px">✅ ตอบรับ</div>
+          <div class="phrase-card mint" style="margin-bottom:8px"><div class="phrase-en">I can't wait!</div><div class="phrase-th">รอไม่ไหวแล้ว!</div></div>
+          <div class="phrase-card mint" style="margin-bottom:8px"><div class="phrase-en">I'll be there!</div><div class="phrase-th">ฉันจะไปที่นั่น!</div></div>
+          <div class="phrase-card mint"><div class="phrase-en">That's a great idea! Let's do it!</div><div class="phrase-th">ความคิดที่ยอดเยี่ยม! ไปทำกัน!</div></div>
+        </div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;color:var(--pink2);margin-bottom:10px">❌ ปฏิเสธ</div>
+          <div class="phrase-card pink" style="margin-bottom:8px"><div class="phrase-en">I'd love to, but I've already made other plans.</div><div class="phrase-th">อยากไปมาก แต่มีแผนอื่นแล้ว</div></div>
+          <div class="phrase-card pink" style="margin-bottom:8px"><div class="phrase-en">Thursday won't work for me, I'm afraid.</div><div class="phrase-th">กลัวว่าพฤหัสจะไม่สะดวก</div></div>
+          <div class="phrase-card pink" style="margin-bottom:8px"><div class="phrase-en">I'd normally be up for it, but...</div><div class="phrase-th">ปกติก็ชอบทำ แต่...</div></div>
+          <div class="phrase-card pink"><div class="phrase-en">I won't be able to attend, unfortunately, because...</div><div class="phrase-th">เสียดายที่ไม่สามารถเข้าร่วมได้ เพราะ...</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end useful -->
+
+  <!-- ===================== READING ===================== -->
+  <div id="sec-reading" class="section">
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--peach2)"></div>Seen Passage 1 — History or Fantasy? 🏰</div>
+      <div class="reading-passage">
+        <div class="passage-title">R. K. Lander — World Building</div>
+        <p>"World building" is when writers <mark class="mark">invent</mark> an imaginary place for their story. Writers must consider various <mark class="mark">elements</mark> when building worlds: the physical <mark class="mark">landscape</mark>, the architecture of the buildings, the politics of the society in which the <mark class="mark">characters</mark> live, the level of <mark class="mark">technology</mark>, and whether things that are impossible can happen.</p>
+        <br>
+        <p>In fantasy there's nearly always a king or queen, or some sort of <mark class="mark">ruler</mark>. That's a sign that we're looking back into the days <mark class="mark">before democracy</mark>. Also, people tend to live in villages; cities are nearly always smaller than today's.</p>
+      </div>
+      <div style="font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:10px">True / False — กดที่ข้อเพื่อดูคำตอบ 👇</div>
+      <ul class="tf-list">
+        <li class="tf-item" data-ans="T" onclick="revealTF(this)"><div class="tf-badge">?</div><div>World building involves creating an imaginary place for a story.</div></li>
+        <li class="tf-item" data-ans="T" onclick="revealTF(this)"><div class="tf-badge">?</div><div>Fantasy stories nearly always feature a king, queen, or ruler.</div></li>
+        <li class="tf-item" data-ans="F" onclick="revealTF(this)"><div class="tf-badge">?</div><div>In fantasy stories, cities are usually larger than modern cities.</div></li>
+        <li class="tf-item" data-ans="T" onclick="revealTF(this)"><div class="tf-badge">?</div><div>A hero riding a horse with a sword suggests no modern technology exists in the world.</div></li>
+        <li class="tf-item" data-ans="F" onclick="revealTF(this)"><div class="tf-badge">?</div><div>History is the only source of inspiration for R. K. Lander's fantasy worlds.</div></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--sky2)"></div>Seen Passage 2 — Illusion Evolution 👁️</div>
+      <div class="reading-passage">
+        <div class="passage-title">Illusion Evolution</div>
+        <p>We now mostly understand how <mark class="mark">optical illusions</mark> work on our brains, but just because the science was unknown in the past, it doesn't mean that clever artists couldn't <mark class="mark">confuse</mark> their friends with tricks of the eye.</p>
+        <br>
+        <p>In 1533, Hans Holbein painted a portrait of two men with a <mark class="mark">skull</mark> hidden on the floor — visible only from a particular angle. In the 19th century, German psychologist Franz Carl Müller-Lyer described an illusion to show how our eyes can <mark class="mark">deceive</mark> us. What we <mark class="mark">perceive</mark> as movement in cinema is in fact thousands of still images shown so quickly that we don't notice.</p>
+      </div>
+      <div style="font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:10px">True / False — กดที่ข้อเพื่อดูคำตอบ 👇</div>
+      <ul class="tf-list">
+        <li class="tf-item" data-ans="T" onclick="revealTF(this)"><div class="tf-badge">?</div><div>Optical illusions have existed long before science could explain them.</div></li>
+        <li class="tf-item" data-ans="F" onclick="revealTF(this)"><div class="tf-badge">?</div><div>The skull in Holbein's painting is visible from any angle.</div></li>
+        <li class="tf-item" data-ans="T" onclick="revealTF(this)"><div class="tf-badge">?</div><div>The Müller-Lyer illusion demonstrates that our eyes can be deceived.</div></li>
+        <li class="tf-item" data-ans="T" onclick="revealTF(this)"><div class="tf-badge">?</div><div>Cinema is essentially a type of optical illusion.</div></li>
+        <li class="tf-item" data-ans="F" onclick="revealTF(this)"><div class="tf-badge">?</div><div>The famous dress debate in 2015 was actually blue and white.</div></li>
+      </ul>
+    </div>
+
+    <!-- Mini Quiz -->
+    <div class="card">
+      <div class="section-title"><div class="dot" style="background:var(--pink2)"></div>Mini Quiz — ทดสอบก่อนสอบ! 🎯</div>
+      <div id="quiz-container">
+        <div id="quiz-score-screen" style="display:none" class="score-display">
+          <div class="big-score" id="score-text">0/15</div>
+          <div id="score-msg"></div>
+          <div style="margin-top:16px">
+            <button class="restart-btn" onclick="restartQuiz()">🔄 เล่นใหม่</button>
+          </div>
+        </div>
+        <div id="quiz-q-wrap">
+          <div class="quiz-q" id="qtext"></div>
+          <div class="quiz-choices" id="qchoices"></div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
+            <button class="next-btn" id="qnext" onclick="nextQ()" style="display:none">คำถามต่อไป →</button>
+            <span style="font-size:0.82rem;color:var(--text2);font-weight:700" id="qprog"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end reading -->
+
+</div><!-- end container -->
+
+<script>
+// ===== TAB SWITCHING =====
+function showTab(t){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+t).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  if(t==='grammar') { showCard(); }
+  if(t==='reading') { initQuiz(); }
+}
+
+// ===== FLASHCARDS =====
+const cards = [
+  {u:9,topic:'Subject Pronouns',sub:'สรรพนามประธาน',content:'I / You / He / She / It / We / They\n\n✅ ใช้แทนคำนามที่ทำหน้าที่เป็นประธาน\n\nEx. He invented the lightbulb.\n      They were an advanced civilization.'},
+  {u:9,topic:'Object Pronouns',sub:'สรรพนามกรรม',content:'Me / You / Him / Her / It / Us / Them\n\n✅ ใช้แทนคำนามที่เป็นกรรมในประโยค\n\nEx. I forgot to invite her.\n      Send the details over to me.'},
+  {u:9,topic:'Possessive Pronouns',sub:'สรรพนามแสดงความเป็นเจ้าของ',content:'Mine / Yours / His / Hers / Its / Ours / Theirs\n\n✅ ไม่ต้องมีคำนามตามหลัง\n\nEx. This book is mine.\n      They\'re friends of ours.'},
+  {u:9,topic:'Reflexive Pronouns',sub:'สรรพนามสะท้อนกลับ',content:'Myself / Yourself / Himself / Herself / Itself / Ourselves / Themselves\n\n✅ ประธาน = กรรม หรือเน้นว่าทำเอง\n\nEx. My laptop keeps turning itself off.\n      She went traveling by herself.'},
+  {u:9,topic:'Indefinite Pronouns',sub:'สรรพนามไม่ชี้เฉพาะ',content:'some- = บอกเล่า / เสนอขอ\nany- = ถาม & ปฏิเสธ\nno- = ปฏิเสธเด็ดขาด (ไม่ใช้คู่กับ not!)\nevery- = ใช้กับกริยาเอกพจน์เสมอ\n\nEx. I don\'t have anything. = I have nothing.\n     Would you like something to drink?'},
+  {u:9,topic:'one / ones',sub:'ใช้แทนคำนาม',content:'one = ใช้กับนามเอกพจน์\nones = ใช้กับนามพหูพจน์\n\nEx. I need a pen. Do you have one?\n      I like these shoes, but I prefer the red ones.'},
+  {u:9,topic:'Passive Voice',sub:'โครงสร้างหลัก',content:'S + v.to be + Past Participle (V3)\n\n🌸 ประธานถูกกระทำ\n✅ ใส่ "by + ผู้กระทำ" เมื่อต้องการระบุ\n❌ ไม่ต้องใส่ by เมื่อผู้กระทำคือ people/someone/they\n\nEx. The room was cleaned. (ไม่รู้ว่าใครทำ)\n      She was praised by the manager.'},
+  {u:10,topic:'Quantifiers: Some & Any',sub:'คำบอกปริมาณ',content:'Some = บอกเล่า / เสนอขอ\n→ I have some books. | Would you like some tea?\n\nAny = ถาม & ปฏิเสธ\n→ I don\'t have any money.\n→ Do you have any questions?\n→ If you have any problems, let me know.\n\n💡 Any ในบอกเล่า = "อะไรก็ได้"\n→ You can take any books you like.'},
+  {u:10,topic:'Quantifiers: All & Every',sub:'ทั้งหมด vs ทุกๆ',content:'All = ทั้งหมด (มองเป็น กลุ่ม)\n→ All + นามพหูพจน์/นามนับไม่ได้\n→ All students must wear uniforms.\n\nEvery = ทุกๆ (มองเป็น รายบุคคล)\n→ Every + นามเอกพจน์ เสมอ!\n→ Every student must wear a uniform.\n\n⚠️ All dogs are friendly. (สุนัขโดยรวม)\n      Every dog is friendly. (สุนัขแต่ละตัว)'},
+  {u:10,topic:'Both / Either / Neither',sub:'สองสิ่ง',content:'Both (ทั้งสอง) → กริยาพหูพจน์\n→ Both restaurants were closed.\n\nEither (อย่างใดอย่างหนึ่ง) → กริยาเอกพจน์\n→ You can sit on either side.\n\nNeither (ไม่ใช่ทั้งสอง) → กริยาเอกพจน์\n→ มีความหมายปฏิเสธในตัว!\n→ ❌ ห้ามใช้คู่กับ no/not\n→ Neither of them knows the answer.'},
+  {u:10,topic:'All of / Most of / None of',sub:'ใช้กับคำนามเฉพาะเจาะจง',content:'ใช้กับคำนามที่เฉพาะเจาะจง\n→ ตามด้วย the / my / your / these / those\n   หรือสรรพนาม (us, them, you)\n\nAll of my friends love traveling.\nMost of the students passed the exam.\nNone of the students were late.\n\n⚠️ All/Most + นาม (ไม่ต้องมี of)\n      All/Most + of + the/my... + นาม'},
+  {u:10,topic:'Much vs Many',sub:'มาก (นับไม่ได้ vs นับได้)',content:'Much → นามนับไม่ได้\n→ มักใช้ในปฏิเสธ & คำถาม\n→ I don\'t have much time.\n→ Much of the money was spent on ads.\n\nMany → นามนับได้พหูพจน์\n→ ใช้ได้ทั้งบอกเล่า ถาม ปฏิเสธ\n→ Many students find math difficult.\n\n💡 ในประโยคบอกเล่า ใช้ "a lot of" แทน much\n→ I have a lot of money. ✅\n→ I have much money. ❌'},
+];
+
+let ci=0, flipped=false;
+function showCard(){
+  flipped=false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  const c=cards[ci];
+  document.getElementById('fc-badge').textContent='Unit '+c.u;
+  document.getElementById('fc-badge').className='badge-label '+(c.u===9?'badge-u9':'badge-u10');
+  document.getElementById('fc-topic').textContent=c.topic;
+  document.getElementById('fc-sub').textContent=c.sub;
+  document.getElementById('fc-content').innerHTML=c.content.replace(/\n/g,'<br>');
+  document.getElementById('fc-prog').textContent=(ci+1)+' / '+cards.length;
+}
+function flipCard(){ flipped=!flipped; document.getElementById('flashcard').classList.toggle('flipped',flipped); }
+function nextCard(){ ci=(ci+1)%cards.length; showCard(); }
+function prevCard(){ ci=(ci-1+cards.length)%cards.length; showCard(); }
+showCard();
+
+// ===== TRUE/FALSE =====
+function revealTF(el){
+  const ans=el.dataset.ans;
+  el.classList.add('revealed',ans==='T'?'true':'false');
+  el.querySelector('.tf-badge').textContent=ans==='T'?'T':'F';
+  el.onclick=null;
+}
+
+// ===== QUIZ =====
+const quizData=[
+  {q:"เลือกคำที่ถูกต้อง: 'The house _____ bought by my sister.'",a:"was",c:["was","is","were","has"]},
+  {q:"'inhabitants' มีความหมายตรงกับข้อใด?",a:"citizens",c:["ruins","citizens","landmarks","civilization"]},
+  {q:"ประโยคใดถูกต้อง?",a:"Neither of them knows the answer.",c:["Neither of them know the answer.","Neither of them knows the answer.","Neither of them don't know the answer.","Neither of them are knowing the answer."]},
+  {q:"'cheat on + คน' หมายความว่าอะไร?",a:"นอกใจ",c:["กล่าวโทษ","นอกใจ","โกหก","แกล้งทำเป็น"]},
+  {q:"คำบอกปริมาณใดใช้กับนามนับไม่ได้?",a:"Much",c:["Many","Both","Much","Either"]},
+  {q:"Passive Voice ของ 'Past Continuous' คืออะไร?",a:"was/were + being + V3",c:["was/were + V3","is/am/are + being + V3","was/were + being + V3","had + been + V3"]},
+  {q:"'She _____ happy.' (ดูจากการเห็น) ควรเติมอะไร?",a:"looks",c:["seems","looks","sounds","appears"]},
+  {q:"ประโยคใดใช้ Reflexive Pronoun ถูกต้อง?",a:"My laptop keeps turning itself off.",c:["My laptop keeps turning itself off.","My laptop keeps turning itsself off.","My laptop keeps turning him off.","My laptop keeps turning its off."]},
+  {q:"'She was ahead of her time.' หมายความว่าอะไร?",a:"เธอมีวิสัยทัศน์ล้ำกว่าคนในยุคนั้น",c:["เธอเดินทางไปก่อนเวลา","เธอมีวิสัยทัศน์ล้ำกว่าคนในยุคนั้น","เธอชนะการแข่งขัน","เธอไม่ตรงต่อเวลา"]},
+  {q:"'All _____ welcome to come.' ควรเติมอะไร?",a:"are",c:["is","are","were","was"]},
+  {q:"ข้อใดคือประโยคปฏิเสธที่ถูกต้อง?",a:"I don't have anything.",c:["I don't have nothing.","I have no anything.","I don't have anything.","I haven't nothing."]},
+  {q:"Verbs of the Senses เหล่านี้เป็น Stative Verbs หมายความว่าอย่างไร?",a:"ห้ามใช้ในรูป Continuous",c:["ต้องใช้ in Continuous","ห้ามใช้ใน Simple","ห้ามใช้ในรูป Continuous","ต้องตามด้วย Noun เท่านั้น"]},
+  {q:"'tell a white lie' หมายความว่าอะไร?",a:"โกหกเรื่องเล็กน้อย ไม่มีเจตนาหลอกลวง",c:["โกหกสีขาว","โกหกเรื่องเล็กน้อย ไม่มีเจตนาหลอกลวง","พูดความจริงเสมอ","ซ่อนความรู้สึก"]},
+  {q:"'date back to' ใช้ในความหมายใด?",a:"ย้อนกลับไปถึงช่วงเวลา",c:["ตั้งรกราก","ถูกปกครองโดย","ย้อนกลับไปถึงช่วงเวลา","มีส่วนร่วมอย่างมาก"]},
+  {q:"ข้อใดถูกต้องเกี่ยวกับ 'Possessive Pronouns'?",a:"ไม่ต้องมีคำนามตามหลัง (This book is mine.)",c:["ต้องมีคำนามตามหลังเสมอ","ไม่ต้องมีคำนามตามหลัง (This book is mine.)","ใช้แทนประธานในประโยค","ใช้เมื่อประธานและกรรมเป็นคนเดียวกัน"]},
+];
+
+let qi=0, score=0, answered=false, quizInited=false;
+function initQuiz(){
+  if(quizInited) return;
+  quizInited=true;
+  qi=0; score=0;
+  loadQ();
+}
+function loadQ(){
+  if(qi>=quizData.length){ showScore(); return; }
+  const q=quizData[qi];
+  document.getElementById('qtext').textContent=(qi+1)+'. '+q.q;
+  const ch=document.getElementById('qchoices');
+  ch.innerHTML='';
+  const shuffled=[...q.c].sort(()=>Math.random()-.5);
+  shuffled.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='choice-btn'; b.textContent=c;
+    b.onclick=()=>answerQ(c,q.a,b);
+    ch.appendChild(b);
+  });
+  document.getElementById('qnext').style.display='none';
+  document.getElementById('qprog').textContent='ข้อ '+(qi+1)+' จาก '+quizData.length+' | คะแนน: '+score;
+  answered=false;
+}
+function answerQ(sel,ans,btn){
+  if(answered) return;
+  answered=true;
+  document.querySelectorAll('.choice-btn').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===ans) b.classList.add('correct');
+  });
+  if(sel===ans){ score++; } else { btn.classList.add('wrong'); }
+  document.getElementById('qnext').style.display='inline-block';
+  if(qi===quizData.length-1) document.getElementById('qnext').textContent='ดูผลลัพธ์ ✨';
+}
+function nextQ(){ qi++; loadQ(); }
+function showScore(){
+  document.getElementById('quiz-q-wrap').style.display='none';
+  document.getElementById('quiz-score-screen').style.display='block';
+  document.getElementById('score-text').textContent=score+' / '+quizData.length;
+  const pct=Math.round(score/quizData.length*100);
+  let msg='';
+  if(pct>=90) msg='🌟 เยี่ยมมาก! พร้อมสอบแล้ว!';
+  else if(pct>=70) msg='🌸 ดีมาก! ทบทวนนิดหน่อย';
+  else if(pct>=50) msg='💪 ผ่านไหว ทบทวนอีกรอบนะ';
+  else msg='📚 ทบทวนใหม่อีกครั้งนะ!';
+  document.getElementById('score-msg').textContent=msg;
+}
+function restartQuiz(){
+  qi=0; score=0;
+  document.getElementById('quiz-q-wrap').style.display='block';
+  document.getElementById('quiz-score-screen').style.display='none';
+  loadQ();
+}
+</script>
+</body>
+</html>
